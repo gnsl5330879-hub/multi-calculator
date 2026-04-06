@@ -1027,8 +1027,18 @@
             });
         }
 
-        function formatNumber(num) {
-            return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        function formatNumberComma(num) {
+            if (isNaN(num) || num === null || num === undefined) return '0';
+            const rounded = Math.round(num);
+            return new Intl.NumberFormat('ko-KR').format(rounded);
+        }
+        
+        function formatNumberWithDecimals(num, decimals = 2) {
+            if (isNaN(num) || num === null || num === undefined) return '0';
+            return new Intl.NumberFormat('ko-KR', { 
+                minimumFractionDigits: decimals, 
+                maximumFractionDigits: decimals 
+            }).format(num);
         }
 
         function calculateExchange() {
@@ -1042,7 +1052,7 @@
 
             const result = (amount * rates[to]) / rates[from];
             document.getElementById('exchangeResult').innerHTML = 
-                `<div class="result-box"><div class="result-label">${from} ${formatNumber(amount)} = ${to}</div><div class="result-value">${formatNumber(result)}</div></div>`;
+                `<div class="result-box"><div class="result-label">${from} ${formatNumberComma(amount)} = ${to}</div><div class="result-value">${formatNumberWithDecimals(result, 2)}</div></div>`;
         }
 
         function calculateBMI() {
@@ -1061,7 +1071,7 @@
             }
 
             document.getElementById('bmiResult').innerHTML = 
-                `<div class="result-box"><div class="result-label">BMI</div><div class="result-value">${bmi.toFixed(1)}</div><div style="margin-top:10px">${category}</div></div>`;
+                `<div class="result-box"><div class="result-label">BMI</div><div class="result-value">${formatNumberWithDecimals(bmi, 1)}</div><div style="margin-top:10px">${category}</div></div>`;
         }
 
         function calculateLoan() {
@@ -1078,10 +1088,10 @@
             document.getElementById('loanResult').innerHTML = 
                 `<div class="result-box">
                     <div class="result-label">${currentLanguage === 'ko' ? '월상환액' : '월支払额'}</div>
-                    <div class="result-value">${formatNumber(payment)}</div>
+                    <div class="result-value">${formatNumberComma(payment)}</div>
                     <div style="margin-top:15px;font-size:14px;opacity:0.9">
-                        ${currentLanguage === 'ko' ? '총상환액' : '总还款'}: ${formatNumber(totalPaid)}<br>
-                        ${currentLanguage === 'ko' ? '총이자' : '总利息'}: ${formatNumber(totalInterest)}
+                        ${currentLanguage === 'ko' ? '총상환액' : '总还款'}: ${formatNumberComma(totalPaid)}<br>
+                        ${currentLanguage === 'ko' ? '총이자' : '总利息'}: ${formatNumberComma(totalInterest)}
                     </div>
                 </div>`;
         }
@@ -1095,9 +1105,9 @@
             document.getElementById('discountResult').innerHTML = 
                 `<div class="result-box">
                     <div class="result-label">${currentLanguage === 'ko' ? '할인가' : 'Discount Price'}</div>
-                    <div class="result-value">${formatNumber(final)}</div>
+                    <div class="result-value">${formatNumberComma(final)}</div>
                     <div style="margin-top:15px;font-size:14px;opacity:0.9">
-                        ${currentLanguage === 'ko' ? '할인액' : 'Discount'}: ${formatNumber(discount)}
+                        ${currentLanguage === 'ko' ? '할인액' : 'Discount'}: ${formatNumberComma(discount)}
                     </div>
                 </div>`;
         }
@@ -1105,7 +1115,7 @@
         function calculateUnit() {
             const value = parseFloat(document.getElementById('unitValue').value) || 0;
             document.getElementById('unitResult').innerHTML = 
-                `<div class="result-box"><div class="result-value">${value.toFixed(2)}</div></div>`;
+                `<div class="result-box"><div class="result-value">${formatNumberWithDecimals(value, 2)}</div></div>`;
         }
 
         function calculateAge() {
@@ -1129,7 +1139,7 @@
             const percent = (part / whole) * 100;
 
             document.getElementById('percentageResult').innerHTML = 
-                `<div class="result-box"><div class="result-value">${percent.toFixed(2)}%</div></div>`;
+                `<div class="result-box"><div class="result-value">${formatNumberWithDecimals(percent, 2)}%</div></div>`;
         }
 
         function calculateTip() {
@@ -1141,9 +1151,9 @@
             document.getElementById('tipResult').innerHTML = 
                 `<div class="result-box">
                     <div class="result-label">${currentLanguage === 'ko' ? '팁' : 'Tip'}</div>
-                    <div class="result-value">${formatNumber(tip)}</div>
+                    <div class="result-value">${formatNumberComma(tip)}</div>
                     <div style="margin-top:15px;font-size:14px;opacity:0.9">
-                        Total: ${formatNumber(total)}
+                        Total: ${formatNumberComma(total)}
                     </div>
                 </div>`;
         }
@@ -1168,9 +1178,9 @@
             document.getElementById('taxResult').innerHTML = 
                 `<div class="result-box">
                     <div class="result-label">${currentLanguage === 'ko' ? '세금' : 'Tax'}</div>
-                    <div class="result-value">${formatNumber(tax)}</div>
+                    <div class="result-value">${formatNumberComma(tax)}</div>
                     <div style="margin-top:15px;font-size:14px;opacity:0.9">
-                        ${currentLanguage === 'ko' ? '세후' : 'After Tax'}: ${formatNumber(afterTax)}
+                        ${currentLanguage === 'ko' ? '세후' : 'After Tax'}: ${formatNumberComma(afterTax)}
                     </div>
                 </div>`;
         }
