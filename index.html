@@ -17,7 +17,6 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="다중 계산기 10in1 - 무료 온라인 계산 도구">
     <meta property="og:description" content="환율, BMI, 할부금 등 10가지 계산기 + 상세 가이드">
-    <meta property="og:url" content="https://multicalculator.pages.dev">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
      crossorigin="anonymous"></script>
@@ -135,12 +134,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
         .ad-label {
             position: absolute;
-            top: 25px;
-            left: 25px;
+            top: 10px;
+            left: 10px;
             font-size: 12px;
             color: #999;
             font-weight: bold;
@@ -369,49 +369,6 @@
             margin-bottom: 10px;
         }
 
-        /* 푸터 */
-        footer {
-            background: var(--text);
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        /* 정보 박스 */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .info-card {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 8px;
-            border-top: 3px solid var(--primary);
-        }
-
-        .info-card h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .info-card p {
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
         /* FAQ */
         .faq-section {
             margin-top: 30px;
@@ -457,6 +414,92 @@
         .faq-item.open .faq-icon {
             transform: rotate(180deg);
         }
+
+        /* 푸터 */
+        footer {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 법적 링크 */
+        .legal-links {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-white);
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .legal-links a {
+            display: inline-block;
+            margin: 0 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .legal-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* 법적 페이지 */
+        .legal-page {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: var(--shadow-lg);
+            display: none;
+        }
+
+        .legal-page.active {
+            display: block;
+        }
+
+        .legal-page h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .legal-page h3 {
+            color: var(--text);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .legal-page p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .legal-page ul {
+            list-style-position: inside;
+            margin-bottom: 15px;
+        }
+
+        .legal-page li {
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -485,7 +528,7 @@
 
         <!-- 광고 영역 1 -->
         <div class="ad-container">
-            <div class="ad-label" id="ad-label">광고</div>
+            <div class="ad-label">광고</div>
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
@@ -509,7 +552,7 @@
             <h2 class="calculator-title">💵 <span id="title-exchange">환율 계산기</span></h2>
             
             <div class="description-box">
-                <h3 id="desc-title">환율 계산기란?</h3>
+                <h3 id="desc-title-ex">환율 계산기란?</h3>
                 <p id="desc-exchange">한 나라의 통화를 다른 나라의 통화로 환전할 때 필요한 금액을 계산해주는 도구입니다. 여행, 국제 거래, 해외 송금 등에 유용합니다.</p>
             </div>
 
@@ -588,25 +631,6 @@
             <button onclick="calculateBMI()">계산하기</button>
 
             <div id="bmiResult"></div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4>저체중</h4>
-                    <p>BMI &lt; 18.5</p>
-                </div>
-                <div class="info-card">
-                    <h4>정상</h4>
-                    <p>18.5 ≤ BMI &lt; 25</p>
-                </div>
-                <div class="info-card">
-                    <h4>과체중</h4>
-                    <p>25 ≤ BMI &lt; 30</p>
-                </div>
-                <div class="info-card">
-                    <h4>비만</h4>
-                    <p>BMI ≥ 30</p>
-                </div>
-            </div>
 
             <div class="tips-section">
                 <h4>💡 건강 팁</h4>
@@ -827,16 +851,6 @@
             <button onclick="calculateTip()">계산하기</button>
 
             <div id="tipResult"></div>
-
-            <div class="tips-section">
-                <h4>💡 팁 관례</h4>
-                <ul>
-                    <li>미국: 15-20% (일반적)</li>
-                    <li>유럽: 5-10% (나라마다 다름)</li>
-                    <li>일본: 보통 팁 없음</li>
-                    <li>한국: 보통 팁 없음</li>
-                </ul>
-            </div>
         </section>
 
         <!-- 9. D-day 계산기 -->
@@ -923,33 +937,37 @@
                     </div>
                     <div class="faq-answer" id="faq-a4">네, 100% 무료입니다. 모든 계산기를 제한 없이 사용할 수 있습니다.</div>
                 </div>
-
-                <div class="faq-item" onclick="toggleFaq(this)">
-                    <div class="faq-question">
-                        <span id="faq-q5">버그를 발견했어요. 어디에 보고하나요?</span>
-                        <span class="faq-icon">▼</span>
-                    </div>
-                    <div class="faq-answer" id="faq-a5">GitHub 저장소(https://github.com/gnsl5330879-hub/multi-calculator)의 Issues 섹션에서 보고해주세요. 감사합니다!</div>
-                </div>
             </div>
         </section>
+
+        <!-- 법적 페이지 링크 -->
+        <div class="legal-links">
+            <a href="#" onclick="toggleLegalPage('privacy'); return false;">개인정보 보호정책</a>
+            <a href="#" onclick="toggleLegalPage('terms'); return false;">이용약관</a>
+            <a href="#" onclick="toggleLegalPage('about'); return false;">회사소개</a>
+            <a href="#" onclick="toggleLegalPage('contact'); return false;">문의하기</a>
+            <a href="#" onclick="toggleLegalPage('disclaimer'); return false;">면책조항</a>
+        </div>
+
+        <!-- 법적 페이지 컨테이너 -->
+        <div id="legal-pages">
+            <!-- JavaScript에서 생성 -->
+        </div>
     </main>
 
     <!-- 푸터 -->
     <footer>
         <p>&copy; 2024 Multi-Calculator. All rights reserved.</p>
-        <p>
-            <a href="#privacy">Privacy Policy</a> | 
-            <a href="#terms">Terms of Service</a> | 
-            <a href="#contact">Contact</a>
-        </p>
+        <p>개인정보 안전 | AdSense 광고 | 무료 온라인 계산 도구</p>
     </footer>
 
     <script>
+        // 다국어 번역 데이터
         const translations = {
             ko: {
                 'intro-title': '10가지 계산기를 한곳에서!',
                 'intro-desc': '환율, BMI, 할부금, 할인, 백분율, 팁, D-day, 세금, 단위변환, 나이 계산 등 실용적인 온라인 계산 도구입니다. 각 계산기마다 상세한 가이드와 팁을 제공합니다.',
+                'intro-features': '✅ 100% 무료  ✅ 모바일 최적화  ✅ 4언어 지원  ✅ 빠른 속도',
                 'title-exchange': '환율 계산기',
                 'title-bmi': 'BMI 계산기',
                 'title-loan': '할부금 계산기',
@@ -960,11 +978,39 @@
                 'title-tip': '팁 계산기',
                 'title-dday': 'D-day 계산기',
                 'title-tax': '세금 계산기',
-                // 계속...
+                'label-amount': '금액 입력',
+                'label-to': '다음으로 환전',
+                'btn-calculate': '계산하기',
+                'faq-title': '자주 묻는 질문 (FAQ)',
+                'faq-q1': '이 계산기는 정확한가요?',
+                'faq-a1': '모든 계산기는 표준 계산 공식을 사용하여 정확하게 개발되었습니다. 다만, 실제 금융/의료 거래의 경우 기관별 수수료나 추가 요소가 있을 수 있으므로 참고용으로 사용하세요.',
+                'faq-q2': '내 개인 정보가 저장되나요?',
+                'faq-a2': '아니요, 입력한 모든 데이터는 로컬 컴퓨터에서만 처리되며 서버에 저장되지 않습니다. 완전히 안전합니다.',
+                'faq-q3': '오프라인에서도 사용할 수 있나요?',
+                'faq-a3': '네, 이 페이지를 한 번 로드한 후 인터넷 연결 없이도 모든 계산 기능을 사용할 수 있습니다.',
+                'faq-q4': '이 서비스는 무료인가요?',
+                'faq-a4': '네, 100% 무료입니다. 모든 계산기를 제한 없이 사용할 수 있습니다.',
+                'desc-exchange': '한 나라의 통화를 다른 나라의 통화로 환전할 때 필요한 금액을 계산해주는 도구입니다. 여행, 국제 거래, 해외 송금 등에 유용합니다.',
+                'desc-bmi': '키와 체중을 기반으로 계산하는 건강 지표입니다. 자신의 건강한 체중 범위를 알고 건강 관리에 참고할 수 있습니다.',
+                'desc-loan': '대출이나 구매 금액을 일정 기간에 나누어 납부할 때 월상환액을 계산해주는 도구입니다.',
+                'desc-discount': '원가에서 할인율만큼 깎은 최종 가격을 계산해주는 도구입니다. 쇼핑할 때 얼마나 절약되는지 알 수 있습니다.',
+                'desc-unit': '길이, 무게, 부피 등 다양한 단위를 변환해주는 도구입니다. 국제 거래나 요리할 때 유용합니다.',
+                'desc-age': '생년월일을 입력하면 현재 정확한 나이를 계산해줍니다.',
+                'desc-percentage': '전체 중에서 특정 부분이 차지하는 비율을 백분율로 계산합니다.',
+                'desc-tip': '레스토랑에서 식사 후 팁의 금액을 쉽게 계산해주는 도구입니다.',
+                'desc-dday': '특정 날짜까지 남은 날, 시간, 분을 계산해줍니다.',
+                'desc-tax': '세전 금액에서 세금을 계산하여 세후 금액을 구합니다.',
+                'warning-exchange': '이 계산기는 참고용입니다. 실제 환전 금액은 금융기관의 환율에 따라 다를 수 있습니다. 정확한 환율은 해당 금융기관에 문의하세요.',
+                'tips-title': '💡 환전 팁',
+                'tip1-exchange': '은행 환율은 시간대에 따라 변합니다',
+                'tip2-exchange': '환전 수수료는 금융기관마다 다릅니다',
+                'tip3-exchange': '공항 환전은 일반 은행보다 비쌉니다',
+                'tip4-exchange': '여행 전 미리 환전하면 대비할 수 있습니다',
             },
             en: {
                 'intro-title': '10 Calculators in One Place!',
                 'intro-desc': 'Practical online calculation tools including exchange rate, BMI, installment, discount, percentage, tip, D-day, tax, unit conversion, and age calculation.',
+                'intro-features': '✅ 100% Free  ✅ Mobile Optimized  ✅ 4 Languages  ✅ Fast Speed',
                 'title-exchange': 'Exchange Rate Calculator',
                 'title-bmi': 'BMI Calculator',
                 'title-loan': 'Loan Calculator',
@@ -975,11 +1021,39 @@
                 'title-tip': 'Tip Calculator',
                 'title-dday': 'D-day Calculator',
                 'title-tax': 'Tax Calculator',
-                // 계속...
+                'label-amount': 'Enter Amount',
+                'label-to': 'Convert To',
+                'btn-calculate': 'Calculate',
+                'faq-title': 'Frequently Asked Questions (FAQ)',
+                'faq-q1': 'Is this calculator accurate?',
+                'faq-a1': 'All calculators are developed accurately using standard calculation formulas. However, actual financial/medical transactions may have additional fees or factors, so use as reference only.',
+                'faq-q2': 'Is my personal information stored?',
+                'faq-a2': 'No, all entered data is processed locally on your computer only and is not stored on any server. It is completely safe.',
+                'faq-q3': 'Can I use it offline?',
+                'faq-a3': 'Yes, after loading this page once, you can use all calculator functions without internet connection.',
+                'faq-q4': 'Is this service free?',
+                'faq-a4': 'Yes, it is 100% free. You can use all calculators without any limitations.',
+                'desc-exchange': 'A tool to calculate the amount needed when exchanging one country\'s currency for another. Useful for travel, international transactions, and overseas remittances.',
+                'desc-bmi': 'A health indicator calculated based on height and weight. You can know your healthy weight range and use it as reference for health management.',
+                'desc-loan': 'A tool to calculate monthly payment amount when dividing loan or purchase amount over a period.',
+                'desc-discount': 'A tool to calculate the final price after discount. You can see how much you save when shopping.',
+                'desc-unit': 'A tool to convert various units like length, weight, and volume. Useful for international transactions or cooking.',
+                'desc-age': 'Calculate your exact current age by entering your date of birth.',
+                'desc-percentage': 'Calculate the percentage that a part takes up of the whole.',
+                'desc-tip': 'A tool to easily calculate the tip amount after dining at a restaurant.',
+                'desc-dday': 'Calculate the remaining days, hours, and minutes until a specific date.',
+                'desc-tax': 'Calculate tax and determine the final amount after tax from the pre-tax amount.',
+                'warning-exchange': 'This calculator is for reference only. Actual exchange amounts may vary depending on the exchange rate of financial institutions. Please inquire at the relevant financial institution for accurate exchange rates.',
+                'tips-title': '💡 Exchange Tips',
+                'tip1-exchange': 'Bank exchange rates vary depending on the time',
+                'tip2-exchange': 'Exchange fees differ by financial institution',
+                'tip3-exchange': 'Airport exchange is more expensive than regular banks',
+                'tip4-exchange': 'Exchange in advance before travel for peace of mind',
             },
             zh: {
                 'intro-title': '一个地方10个计算器！',
                 'intro-desc': '实用的在线计算工具，包括汇率、BMI、分期付款、折扣、百分比、小费、D日期、税金、单位转换和年龄计算。',
+                'intro-features': '✅ 100% 免费  ✅ 移动优化  ✅ 4种语言  ✅ 快速',
                 'title-exchange': '汇率计算器',
                 'title-bmi': 'BMI计算器',
                 'title-loan': '贷款计算器',
@@ -990,11 +1064,39 @@
                 'title-tip': '小费计算器',
                 'title-dday': 'D日期计算器',
                 'title-tax': '税金计算器',
-                // 계속...
+                'label-amount': '输入金额',
+                'label-to': '转换为',
+                'btn-calculate': '计算',
+                'faq-title': '常见问题 (FAQ)',
+                'faq-q1': '这个计算器准确吗？',
+                'faq-a1': '所有计算器都是使用标准计算公式准确开发的。但是，实际的财务/医疗交易可能有额外的费用或因素，因此仅供参考。',
+                'faq-q2': '我的个人信息会被保存吗？',
+                'faq-a2': '不会，所有输入的数据仅在您的本地计算机上处理，不会存储在任何服务器上。完全安全。',
+                'faq-q3': '我可以离线使用吗？',
+                'faq-a3': '可以，加载此页面一次后，无需互联网连接即可使用所有计算器功能。',
+                'faq-q4': '这项服务是免费的吗？',
+                'faq-a4': '是的，100% 免费。您可以无限制地使用所有计算器。',
+                'desc-exchange': '在进行货币兑换时计算所需金额的工具。适用于旅游、国际交易和海外汇款。',
+                'desc-bmi': '根据身高和体重计算的健康指数。可以了解您的健康体重范围并用于健康管理。',
+                'desc-loan': '在一定期间内分期偿还贷款或购买金额时计算月还款额的工具。',
+                'desc-discount': '计算折扣后最终价格的工具。购物时可以了解您能节省多少。',
+                'desc-unit': '转换各种单位（如长度、重量和体积）的工具。适用于国际交易或烹饪。',
+                'desc-age': '输入出生日期可计算您的精确年龄。',
+                'desc-percentage': '计算一部分占总体的百分比。',
+                'desc-tip': '在餐厅用餐后轻松计算小费金额的工具。',
+                'desc-dday': '计算到特定日期还剩余的天、小时和分钟。',
+                'desc-tax': '计算税金并确定税后最终金额。',
+                'warning-exchange': '此计算器仅供参考。实际兑换金额可能因金融机构的汇率而异。请向相关金融机构查询准确的汇率。',
+                'tips-title': '💡 兑换提示',
+                'tip1-exchange': '银行汇率随时间变化',
+                'tip2-exchange': '兑换费用因金融机构而异',
+                'tip3-exchange': '机场兑换比普通银行更贵',
+                'tip4-exchange': '旅行前提前兑换以安心',
             },
             ja: {
                 'intro-title': '1つの場所に10個の電卓！',
                 'intro-desc': '為替レート、BMI、ローン、割引、パーセンテージ、チップ、D-day、税金、単位変換、年齢計算など、実用的なオンライン計算ツールです。',
+                'intro-features': '✅ 100% 無料  ✅ モバイル最適化  ✅ 4言語対応  ✅ 高速',
                 'title-exchange': '為替レート電卓',
                 'title-bmi': 'BMI電卓',
                 'title-loan': 'ローン電卓',
@@ -1005,7 +1107,34 @@
                 'title-tip': 'チップ電卓',
                 'title-dday': 'D-day電卓',
                 'title-tax': '税金電卓',
-                // 계속...
+                'label-amount': '金額を入力',
+                'label-to': 'に変換',
+                'btn-calculate': '計算する',
+                'faq-title': 'よくある質問 (FAQ)',
+                'faq-q1': 'この電卓は正確ですか？',
+                'faq-a1': 'すべての電卓は標準的な計算公式を使用して正確に開発されています。ただし、実際の金融/医療取引には追加の手数料または要因がある可能性があるため、参考用としてのみ使用してください。',
+                'faq-q2': '個人情報は保存されますか？',
+                'faq-a2': 'いいえ、入力されたすべてのデータはコンピュータ上でのみ処理され、サーバーには保存されません。完全に安全です。',
+                'faq-q3': 'オフラインで使用できますか？',
+                'faq-a3': 'はい、このページを一度読み込んだ後、インターネット接続なしですべての計算機能を使用できます。',
+                'faq-q4': 'このサービスは無料ですか？',
+                'faq-a4': 'はい、100% 無料です。すべての電卓を無制限に使用できます。',
+                'desc-exchange': '通貨を交換する際に必要な金額を計算するツール。旅行、国際取引、海外送金に便利です。',
+                'desc-bmi': '身長と体重に基づいて計算された健康指標。健康な体重範囲を知り、健康管理に役立てることができます。',
+                'desc-loan': 'ローンまたは購入金額を一定期間に分けて返済する際の月々の返済額を計算するツール。',
+                'desc-discount': '割引後の最終価格を計算するツール。買い物の時に節約額を知ることができます。',
+                'desc-unit': '長さ、重さ、体積などのさまざまな単位を変換するツール。国際取引や調理に便利です。',
+                'desc-age': '生年月日を入力して正確な現在の年齢を計算します。',
+                'desc-percentage': '一部が全体に占める割合をパーセンテージで計算します。',
+                'desc-tip': 'レストランでの食事の後のチップ額を簡単に計算するツール。',
+                'desc-dday': '特定の日付まで残りの日、時間、分を計算します。',
+                'desc-tax': '税金を計算して税前金額から税後の最終金額を決定します。',
+                'warning-exchange': 'この電卓は参考用です。実際の交換金額は金融機関の為替レートによって異なる場合があります。正確な為替レートについては、該当する金融機関にお問い合わせください。',
+                'tips-title': '💡 交換のヒント',
+                'tip1-exchange': '銀行の為替レートは時間によって異なります',
+                'tip2-exchange': '交換手数料は金融機関によって異なります',
+                'tip3-exchange': '空港での両替は銀行よりも高い',
+                'tip4-exchange': '旅行前に事前に両替して安心を得る',
             }
         };
 
@@ -1036,13 +1165,11 @@
         }
 
         function switchCalculator(calcId) {
-            // 섹션 전환
             document.querySelectorAll('.calculator-section').forEach(s => {
                 s.classList.remove('active');
             });
             document.querySelector(`[data-calc="${calcId}"]`).classList.add('active');
 
-            // 탭 버튼 활성화
             document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
                 btn.classList.toggle('active', calculators[idx].id === calcId);
             });
@@ -1052,34 +1179,27 @@
             currentLanguage = lang;
             document.documentElement.lang = lang;
 
-            // 언어 버튼 업데이트
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
 
-            // 탭 네비게이션 업데이트
             document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
                 btn.textContent = calculators[idx].name[lang];
             });
 
-            // 타이틀 업데이트
             updateLanguageContent();
         }
 
         function updateLanguageContent() {
-            // 언어별 콘텐츠 업데이트 (간단한 예)
-            const titles = {
-                ko: { intro: '10가지 계산기를 한곳에서!' },
-                en: { intro: '10 Calculators in One Place!' },
-                zh: { intro: '一个地方10个计算器！' },
-                ja: { intro: '1つの場所に10個の電卓！' }
-            };
-
-            document.getElementById('intro-title').textContent = titles[currentLanguage].intro;
+            Object.keys(translations[currentLanguage]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
         }
 
-        // 계산 함수들
         function formatNumber(num) {
             return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
@@ -1105,13 +1225,13 @@
             const bmi = weight / (height * height);
 
             let category = '';
-            if (bmi < 18.5) category = '저체중';
-            else if (bmi < 25) category = '정상';
-            else if (bmi < 30) category = '과체중';
-            else category = '비만';
+            if (bmi < 18.5) category = currentLanguage === 'ko' ? '저체중' : (currentLanguage === 'en' ? 'Underweight' : (currentLanguage === 'zh' ? '低体重' : '低体重'));
+            else if (bmi < 25) category = currentLanguage === 'ko' ? '정상' : (currentLanguage === 'en' ? 'Normal' : (currentLanguage === 'zh' ? '正常' : '正常'));
+            else if (bmi < 30) category = currentLanguage === 'ko' ? '과체중' : (currentLanguage === 'en' ? 'Overweight' : (currentLanguage === 'zh' ? '超重' : '超重'));
+            else category = currentLanguage === 'ko' ? '비만' : (currentLanguage === 'en' ? 'Obese' : (currentLanguage === 'zh' ? '肥胖' : '肥満'));
 
             document.getElementById('bmiResult').innerHTML = 
-                `<div class="result-box"><div class="result-label">당신의 BMI</div><div class="result-value">${bmi.toFixed(1)}</div><div style="margin-top:10px;font-size:18px">${category}</div></div>`;
+                `<div class="result-box"><div class="result-label">${currentLanguage === 'ko' ? '당신의 BMI' : (currentLanguage === 'en' ? 'Your BMI' : (currentLanguage === 'zh' ? '你的BMI' : 'あなたのBMI'))}</div><div class="result-value">${bmi.toFixed(1)}</div><div style="margin-top:10px;font-size:18px">${category}</div></div>`;
         }
 
         function calculateLoan() {
@@ -1127,11 +1247,11 @@
 
             document.getElementById('loanResult').innerHTML = 
                 `<div class="result-box">
-                    <div class="result-label">월상환액</div>
+                    <div class="result-label">${currentLanguage === 'ko' ? '월상환액' : (currentLanguage === 'en' ? 'Monthly Payment' : (currentLanguage === 'zh' ? '月还款额' : '月支払額'))}</div>
                     <div class="result-value">${formatNumber(payment)}</div>
                     <div style="margin-top:15px;font-size:14px;opacity:0.9">
-                        총상환액: ${formatNumber(totalPaid)}<br>
-                        총이자: ${formatNumber(totalInterest)}
+                        ${currentLanguage === 'ko' ? '총상환액' : (currentLanguage === 'en' ? 'Total Payment' : (currentLanguage === 'zh' ? '总还款额' : '総支払額'))}: ${formatNumber(totalPaid)}<br>
+                        ${currentLanguage === 'ko' ? '총이자' : (currentLanguage === 'en' ? 'Total Interest' : (currentLanguage === 'zh' ? '总利息' : '総利息'))}: ${formatNumber(totalInterest)}
                     </div>
                 </div>`;
         }
@@ -1144,21 +1264,19 @@
 
             document.getElementById('discountResult').innerHTML = 
                 `<div class="result-box">
-                    <div class="result-label">할인가</div>
+                    <div class="result-label">${currentLanguage === 'ko' ? '할인가' : (currentLanguage === 'en' ? 'Discount Price' : (currentLanguage === 'zh' ? '折扣价' : '割引価格'))}</div>
                     <div class="result-value">${formatNumber(final)}</div>
                     <div style="margin-top:15px;font-size:14px;opacity:0.9">
-                        할인액: ${formatNumber(discountAmount)}
+                        ${currentLanguage === 'ko' ? '할인액' : (currentLanguage === 'en' ? 'Discount Amount' : (currentLanguage === 'zh' ? '折扣金额' : '割引額'))}: ${formatNumber(discountAmount)}
                     </div>
                 </div>`;
         }
 
         function calculateUnit() {
-            // 단순한 예
             const value = parseFloat(document.getElementById('unitValue').value);
             const from = document.getElementById('unitFrom').value;
             const to = document.getElementById('unitTo').value;
             
-            // 실제로는 더 복잡한 변환이 필요함
             document.getElementById('unitResult').innerHTML = 
                 `<div class="result-box">
                     <div class="result-label">${from} ${value} = ${to}</div>
@@ -1178,7 +1296,7 @@
 
             document.getElementById('ageResult').innerHTML = 
                 `<div class="result-box">
-                    <div class="result-label">당신의 나이</div>
+                    <div class="result-label">${currentLanguage === 'ko' ? '당신의 나이' : (currentLanguage === 'en' ? 'Your Age' : (currentLanguage === 'zh' ? '你的年龄' : 'あなたの年齢'))}</div>
                     <div class="result-value">${age}</div>
                 </div>`;
         }
@@ -1190,7 +1308,7 @@
 
             document.getElementById('percentageResult').innerHTML = 
                 `<div class="result-box">
-                    <div class="result-label">백분율</div>
+                    <div class="result-label">${currentLanguage === 'ko' ? '백분율' : (currentLanguage === 'en' ? 'Percentage' : (currentLanguage === 'zh' ? '百分比' : 'パーセンテージ'))}</div>
                     <div class="result-value">${percent.toFixed(2)}%</div>
                 </div>`;
         }
@@ -1203,10 +1321,10 @@
 
             document.getElementById('tipResult').innerHTML = 
                 `<div class="result-box">
-                    <div class="result-label">팁 금액</div>
+                    <div class="result-label">${currentLanguage === 'ko' ? '팁 금액' : (currentLanguage === 'en' ? 'Tip Amount' : (currentLanguage === 'zh' ? '小费金额' : 'チップ額'))}</div>
                     <div class="result-value">${formatNumber(tip)}</div>
                     <div style="margin-top:15px;font-size:14px;opacity:0.9">
-                        합계: ${formatNumber(total)}
+                        ${currentLanguage === 'ko' ? '합계' : (currentLanguage === 'en' ? 'Total' : (currentLanguage === 'zh' ? '总计' : '合計'))}: ${formatNumber(total)}
                     </div>
                 </div>`;
         }
@@ -1219,7 +1337,7 @@
 
             document.getElementById('ddayResult').innerHTML = 
                 `<div class="result-box">
-                    <div class="result-label">남은 날짜</div>
+                    <div class="result-label">${currentLanguage === 'ko' ? '남은 날짜' : (currentLanguage === 'en' ? 'Remaining Date' : (currentLanguage === 'zh' ? '剩余日期' : '残り日数'))}</div>
                     <div class="result-value">${days > 0 ? 'D-' + days : 'D+' + Math.abs(days)}</div>
                 </div>`;
         }
@@ -1232,16 +1350,25 @@
 
             document.getElementById('taxResult').innerHTML = 
                 `<div class="result-box">
-                    <div class="result-label">세금</div>
+                    <div class="result-label">${currentLanguage === 'ko' ? '세금' : (currentLanguage === 'en' ? 'Tax' : (currentLanguage === 'zh' ? '税金' : '税金'))}</div>
                     <div class="result-value">${formatNumber(tax)}</div>
                     <div style="margin-top:15px;font-size:14px;opacity:0.9">
-                        세후: ${formatNumber(afterTax)}
+                        ${currentLanguage === 'ko' ? '세후' : (currentLanguage === 'en' ? 'After Tax' : (currentLanguage === 'zh' ? '税后' : '税後'))}: ${formatNumber(afterTax)}
                     </div>
                 </div>`;
         }
 
         function toggleFaq(element) {
             element.classList.toggle('open');
+        }
+
+        function toggleLegalPage(page) {
+            const pages = document.querySelectorAll('.legal-page');
+            pages.forEach(p => p.classList.remove('active'));
+            const targetPage = document.getElementById(`legal-${page}`);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
         }
 
         function updateUnits() {
@@ -1266,12 +1393,198 @@
             });
         }
 
-        // 초기화
+        function createLegalPages() {
+            const legalContainer = document.getElementById('legal-pages');
+            
+            const legalPages = {
+                privacy: {
+                    ko: {
+                        title: '개인정보 보호정책',
+                        sections: [
+                            { heading: '1. 개인정보 수집', content: '본 웹사이트는 사용자의 개인정보를 수집하지 않습니다. 모든 계산 데이터는 사용자의 로컬 컴퓨터에서만 처리되며 서버로 전송되지 않습니다.' },
+                            { heading: '2. 쿠키 정책', content: '본 사이트는 Google AdSense 광고를 사용하며, Google은 쿠키를 사용할 수 있습니다. 자세한 내용은 Google의 개인정보 보호정책을 참조하세요.' },
+                            { heading: '3. 보안', content: '모든 데이터는 HTTPS를 통해 암호화되며 안전하게 전송됩니다.' },
+                        ]
+                    },
+                    en: {
+                        title: 'Privacy Policy',
+                        sections: [
+                            { heading: '1. Information Collection', content: 'This website does not collect any personal information from users. All calculation data is processed only on the user\'s local computer and is not transmitted to any server.' },
+                            { heading: '2. Cookie Policy', content: 'This site uses Google AdSense advertising, and Google may use cookies. Please refer to Google\'s privacy policy for more information.' },
+                            { heading: '3. Security', content: 'All data is encrypted via HTTPS and transmitted securely.' },
+                        ]
+                    },
+                    zh: {
+                        title: '隐私政策',
+                        sections: [
+                            { heading: '1. 信息收集', content: '本网站不从用户那里收集任何个人信息。所有计算数据仅在用户的本地计算机上处理，不会传输到任何服务器。' },
+                            { heading: '2. Cookie政策', content: '本网站使用Google AdSense广告，Google可能使用cookie。有关更多信息，请参阅Google的隐私政策。' },
+                            { heading: '3. 安全性', content: '所有数据都通过HTTPS进行加密并安全传输。' },
+                        ]
+                    },
+                    ja: {
+                        title: 'プライバシーポリシー',
+                        sections: [
+                            { heading: '1. 情報の収集', content: 'このウェブサイトはユーザーから個人情報を収集しません。すべての計算データはユーザーのローカルコンピュータのみで処理され、サーバーに送信されません。' },
+                            { heading: '2. Cookie政策', content: 'このサイトはGoogle AdSense広告を使用しており、Googleはcookieを使用する場合があります。詳細については、Googleのプライバシーポリシーを参照してください。' },
+                            { heading: '3. セキュリティ', content: 'すべてのデータはHTTPSで暗号化され、安全に送信されます。' },
+                        ]
+                    }
+                },
+                terms: {
+                    ko: {
+                        title: '이용약관',
+                        sections: [
+                            { heading: '1. 서비스 약관', content: '본 계산기는 참고용으로만 제공됩니다. 모든 계산 결과는 100% 정확성을 보장하지 않습니다.' },
+                            { heading: '2. 면책조항', content: '본 계산기 사용으로 인한 손실이나 손해에 대해 책임을 지지 않습니다.' },
+                            { heading: '3. 서비스 중단', content: '예고 없이 서비스를 중단할 수 있습니다.' },
+                        ]
+                    },
+                    en: {
+                        title: 'Terms of Service',
+                        sections: [
+                            { heading: '1. Service Terms', content: 'This calculator is provided for reference purposes only. We do not guarantee 100% accuracy of all calculation results.' },
+                            { heading: '2. Disclaimer', content: 'We are not responsible for any losses or damages resulting from the use of this calculator.' },
+                            { heading: '3. Service Suspension', content: 'We may suspend the service without notice.' },
+                        ]
+                    },
+                    zh: {
+                        title: '服务条款',
+                        sections: [
+                            { heading: '1. 服务条款', content: '本计算器仅供参考。我们不保证所有计算结果的100%准确性。' },
+                            { heading: '2. 免责声明', content: '我们不对因使用本计算器而造成的任何损失或伤害负责。' },
+                            { heading: '3. 服务暂停', content: '我们可能会在没有通知的情况下暂停该服务。' },
+                        ]
+                    },
+                    ja: {
+                        title: '利用規約',
+                        sections: [
+                            { heading: '1. サービス規約', content: 'この電卓は参考用としてのみ提供されます。すべての計算結果の100%の精度を保証しません。' },
+                            { heading: '2. 免責事項', content: 'この電卓の使用による損失または損害について責任を負いません。' },
+                            { heading: '3. サービス中止', content '通知なしにサービスを中止することができます。' },
+                        ]
+                    }
+                },
+                about: {
+                    ko: {
+                        title: '회사소개',
+                        sections: [
+                            { heading: '다중 계산기 프로젝트', content: '다중 계산기는 전 세계 사용자를 위한 무료 온라인 계산 도구입니다. 우리의 목표는 누구나 쉽게 접근할 수 있는 실용적인 계산 솔루션을 제공하는 것입니다.' },
+                            { heading: '우리의 가치', content: '품질, 사용자 경험, 보안을 최우선으로 생각합니다.' },
+                        ]
+                    },
+                    en: {
+                        title: 'About Us',
+                        sections: [
+                            { heading: 'Multi-Calculator Project', content: 'Multi-Calculator is a free online calculation tool for users around the world. Our goal is to provide practical calculation solutions that are easily accessible to everyone.' },
+                            { heading: 'Our Values', content: 'We prioritize quality, user experience, and security above all else.' },
+                        ]
+                    },
+                    zh: {
+                        title: '关于我们',
+                        sections: [
+                            { heading: '多功能计算器项目', content: '多功能计算器是面向全球用户的免费在线计算工具。我们的目标是为所有人提供容易获取的实用计算解决方案。' },
+                            { heading: '我们的价值观', content: '我们优先考虑质量、用户体验和安全。' },
+                        ]
+                    },
+                    ja: {
+                        title: '私たちについて',
+                        sections: [
+                            { heading: 'マルチ電卓プロジェクト', content: 'マルチ電卓は、世界中のユーザーのための無料のオンライン計算ツールです。私たちの目標は、誰もが簡単にアクセスできる実用的な計算ソリューションを提供することです。' },
+                            { heading: '私たちの価値観', content: '品質、ユーザー体験、セキュリティを最優先に考えます。' },
+                        ]
+                    }
+                },
+                contact: {
+                    ko: {
+                        title: '문의하기',
+                        sections: [
+                            { heading: '피드백', content: '버그 신고나 기능 제안은 GitHub 저장소의 Issues 섹션을 통해 제출해주세요.' },
+                            { heading: '이메일', content: '문의사항이 있으시면 support@multicalculator.app로 연락주세요.' },
+                        ]
+                    },
+                    en: {
+                        title: 'Contact Us',
+                        sections: [
+                            { heading: 'Feedback', content: 'Please submit bug reports or feature suggestions through the Issues section of our GitHub repository.' },
+                            { heading: 'Email', content: 'If you have any inquiries, please contact us at support@multicalculator.app.' },
+                        ]
+                    },
+                    zh: {
+                        title: '联系我们',
+                        sections: [
+                            { heading: '反馈', content: '请通过GitHub存储库的Issues部分提交错误报告或功能建议。' },
+                            { heading: '电子邮件', content: '如有任何疑问，请通过support@multicalculator.app与我们联系。' },
+                        ]
+                    },
+                    ja: {
+                        title: 'お問い合わせ',
+                        sections: [
+                            { heading: 'フィードバック', content: 'バグ報告または機能提案は、GitHubリポジトリのIssuesセクションを通じて送信してください。' },
+                            { heading: 'メール', content: 'ご質問がある場合は、support@multicalculator.appまでお問い合わせください。' },
+                        ]
+                    }
+                },
+                disclaimer: {
+                    ko: {
+                        title: '면책조항',
+                        sections: [
+                            { heading: '의료 면책', content: '이 계산기의 계산 결과는 의료 목적으로 사용할 수 없습니다. 건강 관련 결정은 반드시 의료 전문가와 상담하세요.' },
+                            { heading: '금융 면책', content: '이 계산기의 계산 결과는 금융 조언이 아닙니다. 실제 금융 거래 전에 금융 전문가의 조언을 받으세요.' },
+                            { heading: '일반 면책', content: '본 계산기 사용으로 인한 모든 손실이나 손해에 대해 책임을 지지 않습니다.' },
+                        ]
+                    },
+                    en: {
+                        title: 'Disclaimer',
+                        sections: [
+                            { heading: 'Medical Disclaimer', content: 'Calculation results from this calculator cannot be used for medical purposes. Always consult with a medical professional for health-related decisions.' },
+                            { heading: 'Financial Disclaimer', content: 'Calculation results from this calculator are not financial advice. Consult with a financial professional before making actual financial transactions.' },
+                            { heading: 'General Disclaimer', content: 'We are not responsible for any losses or damages resulting from the use of this calculator.' },
+                        ]
+                    },
+                    zh: {
+                        title: '免责声明',
+                        sections: [
+                            { heading: '医疗免责声明', content: '本计算器的计算结果不能用于医疗目的。健康相关的决定必须咨询医疗专业人士。' },
+                            { heading: '财务免责声明', content: '本计算器的计算结果不是财务建议。进行实际财务交易前请咨询财务专业人士。' },
+                            { heading: '一般免责声明', content: '我们不对因使用本计算器而造成的任何损失或伤害负责。' },
+                        ]
+                    },
+                    ja: {
+                        title: '免責事項',
+                        sections: [
+                            { heading: '医療免責', content: 'この電卓の計算結果は医療目的には使用できません。健康関連の決定については必ず医療専門家に相談してください。' },
+                            { heading: '金融免責', content: 'この電卓の計算結果は金融アドバイスではありません。実際の金融取引を行う前に、金融専門家に相談してください。' },
+                            { heading: '一般免責', content: 'この電卓の使用による損失または損害について責任を負いません。' },
+                        ]
+                    }
+                }
+            };
+
+            Object.entries(legalPages).forEach(([key, translations]) => {
+                const page = document.createElement('div');
+                page.className = 'legal-page';
+                page.id = `legal-${key}`;
+                
+                const content = translations[currentLanguage] || translations.ko;
+                let html = `<h2>${content.title}</h2>`;
+                
+                content.sections.forEach(section => {
+                    html += `<h3>${section.heading}</h3><p>${section.content}</p>`;
+                });
+                
+                page.innerHTML = html;
+                legalContainer.appendChild(page);
+            });
+        }
+
         window.addEventListener('load', () => {
             initTabs();
             updateUnits();
+            createLegalPages();
             document.getElementById('ageDate').valueAsDate = new Date();
             document.getElementById('ddayDate').valueAsDate = new Date(new Date().setMonth(new Date().getMonth() + 1));
+            updateLanguageContent();
         });
     </script>
 </body>
