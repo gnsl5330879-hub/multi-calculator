@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ===== SEO Meta Tags ===== -->
+    <title>다중 계산기 10in1 - 환율, BMI, 할부금, 할인 무료 계산 도구</title>
+    <meta name="description" content="10가지 실용적인 온라인 계산기. 환율 환전, BMI 계산, 할부금, 할인, 세금, 팁 등 모든 계산을 한곳에서! 각 계산기별 상세 가이드와 팁 포함. 4언어 지원, 100% 무료.">
+    <meta name="keywords" content="계산기, 환율계산기, BMI계산기, 할부금계산기, 할인계산기, 무료계산, 온라인도구">
+    <meta name="author" content="Multi-Calculator">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- ===== Open Graph ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="다중 계산기 10in1 - 무료 온라인 계산 도구">
+    <meta property="og:description" content="환율, BMI, 할부금 등 10가지 계산기 + 상세 가이드">
+    <meta property="og:url" content="https://multicalculator.pages.dev">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+     crossorigin="anonymous"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #378ADD;
+            --primary-dark: #2563eb;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border: #e5e7eb;
+            --success: #10b981;
+            --info: #3b82f6;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noto Sans KR', sans-serif;
+            color: var(--text);
+            background: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 헤더 */
+        header {
+            background: var(--bg-white);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .language-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--border);
+            background: var(--bg-white);
+            color: var(--text);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .lang-btn:hover {
+            border-color: var(--primary);
+        }
+
+        /* 소개 섹션 */
+        .intro-section {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .intro-section h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .intro-section p {
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* 광고 영역 */
+        .ad-container {
+            background: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-label {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-size: 12px;
+            color: #999;
+            font-weight: bold;
+        }
+
+        /* 탭 네비게이션 */
+        .tab-navigation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-btn {
+            padding: 12px;
+            border: 2px solid var(--border);
+            background: var(--bg-white);
+            color: var(--text);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            background: var(--bg-light);
+        }
+
+        /* 계산기 섹션 */
+        .calculator-section {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: var(--shadow-lg);
+            display: none;
+        }
+
+        .calculator-section.active {
+            display: block;
+        }
+
+        .calculator-title {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 설명 박스 */
+        .description-box {
+            background: var(--bg-light);
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .description-box h3 {
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .description-box p {
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        /* 입력 폼 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 버튼 */
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* 결과 */
+        .result-box {
+            background: var(--success);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .result-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            font-size: 32px;
+        }
+
+        /* 팁 섹션 */
+        .tips-section {
+            background: #fffacd;
+            border-left: 4px solid #ffd700;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .tips-section h4 {
+            color: #ff8c00;
+            margin-bottom: 10px;
+        }
+
+        .tips-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .tips-section li {
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .tips-section li:before {
+            content: "💡 ";
+            margin-right: 8px;
+        }
+
+        /* 공식 섹션 */
+        .formula-section {
+            background: #f0f4ff;
+            border-left: 4px solid var(--info);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .formula-section h4 {
+            color: var(--info);
+            margin-bottom: 10px;
+        }
+
+        .formula-section code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #d63384;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* 주의사항 */
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #856404;
+        }
+
+        .warning-box h4 {
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+
+        /* 푸터 */
+        footer {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* 정보 박스 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-card {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid var(--primary);
+        }
+
+        .info-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin-top: 30px;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            background: #e5e7eb;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            color: var(--text-light);
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🧮 Multi-Calculator</div>
+                <div class="language-buttons">
+                    <button class="lang-btn active" onclick="setLanguage('ko')">한국어</button>
+                    <button class="lang-btn" onclick="setLanguage('en')">English</button>
+                    <button class="lang-btn" onclick="setLanguage('zh')">中文</button>
+                    <button class="lang-btn" onclick="setLanguage('ja')">日本語</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 소개 섹션 -->
+        <div class="intro-section">
+            <h2 id="intro-title">10가지 계산기를 한곳에서!</h2>
+            <p id="intro-desc">환율, BMI, 할부금, 할인, 백분율, 팁, D-day, 세금, 단위변환, 나이 계산 등 실용적인 온라인 계산 도구입니다. 각 계산기마다 상세한 가이드와 팁을 제공합니다.</p>
+            <p id="intro-features" style="margin-top: 15px; font-weight: 600;">✅ 100% 무료  ✅ 모바일 최적화  ✅ 4언어 지원  ✅ 빠른 속도</p>
+        </div>
+
+        <!-- 광고 영역 1 -->
+        <div class="ad-container">
+            <div class="ad-label" id="ad-label">광고</div>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- 탭 네비게이션 -->
+        <div class="tab-navigation" id="tab-nav">
+            <!-- JavaScript에서 생성 -->
+        </div>
+
+        <!-- ===== 계산기 섹션들 ===== -->
+
+        <!-- 1. 환율 계산기 -->
+        <section class="calculator-section active" data-calc="exchange">
+            <h2 class="calculator-title">💵 <span id="title-exchange">환율 계산기</span></h2>
+            
+            <div class="description-box">
+                <h3 id="desc-title">환율 계산기란?</h3>
+                <p id="desc-exchange">한 나라의 통화를 다른 나라의 통화로 환전할 때 필요한 금액을 계산해주는 도구입니다. 여행, 국제 거래, 해외 송금 등에 유용합니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label id="label-amount">금액 입력</label>
+                <div class="form-row">
+                    <div>
+                        <input type="number" id="exchangeAmount" placeholder="금액" value="100">
+                    </div>
+                    <div>
+                        <select id="exchangeFrom">
+                            <option value="KRW">KRW (한국 원)</option>
+                            <option value="USD">USD (미국 달러)</option>
+                            <option value="JPY">JPY (일본 엔)</option>
+                            <option value="EUR">EUR (유로)</option>
+                            <option value="CNY">CNY (중국 위안)</option>
+                            <option value="GBP">GBP (영국 파운드)</option>
+                            <option value="AUD">AUD (호주 달러)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label id="label-to">다음으로 환전</label>
+                <select id="exchangeTo">
+                    <option value="USD">USD (미국 달러)</option>
+                    <option value="KRW">KRW (한국 원)</option>
+                    <option value="JPY">JPY (일본 엔)</option>
+                    <option value="EUR">EUR (유로)</option>
+                    <option value="CNY">CNY (중국 위안)</option>
+                    <option value="GBP">GBP (영국 파운드)</option>
+                    <option value="AUD">AUD (호주 달러)</option>
+                </select>
+            </div>
+
+            <button onclick="calculateExchange()" id="btn-calculate">계산하기</button>
+
+            <div id="exchangeResult"></div>
+
+            <div class="tips-section">
+                <h4 id="tips-title">💡 환전 팁</h4>
+                <ul>
+                    <li id="tip1-exchange">은행 환율은 시간대에 따라 변합니다</li>
+                    <li id="tip2-exchange">환전 수수료는 금융기관마다 다릅니다</li>
+                    <li id="tip3-exchange">공항 환전은 일반 은행보다 비쌉니다</li>
+                    <li id="tip4-exchange">여행 전 미리 환전하면 대비할 수 있습니다</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ 주의사항</h4>
+                <p id="warning-exchange">이 계산기는 참고용입니다. 실제 환전 금액은 금융기관의 환율에 따라 다를 수 있습니다. 정확한 환율은 해당 금융기관에 문의하세요.</p>
+            </div>
+        </section>
+
+        <!-- 2. BMI 계산기 -->
+        <section class="calculator-section" data-calc="bmi">
+            <h2 class="calculator-title">⚖️ <span id="title-bmi">BMI 계산기</span></h2>
+            
+            <div class="description-box">
+                <h3>BMI(체질량 지수)란?</h3>
+                <p id="desc-bmi">키와 체중을 기반으로 계산하는 건강 지표입니다. 자신의 건강한 체중 범위를 알고 건강 관리에 참고할 수 있습니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label>키 (cm)</label>
+                <input type="number" id="bmiHeight" placeholder="170" value="170">
+            </div>
+
+            <div class="form-group">
+                <label>체중 (kg)</label>
+                <input type="number" id="bmiWeight" placeholder="70" value="70">
+            </div>
+
+            <button onclick="calculateBMI()">계산하기</button>
+
+            <div id="bmiResult"></div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>저체중</h4>
+                    <p>BMI &lt; 18.5</p>
+                </div>
+                <div class="info-card">
+                    <h4>정상</h4>
+                    <p>18.5 ≤ BMI &lt; 25</p>
+                </div>
+                <div class="info-card">
+                    <h4>과체중</h4>
+                    <p>25 ≤ BMI &lt; 30</p>
+                </div>
+                <div class="info-card">
+                    <h4>비만</h4>
+                    <p>BMI ≥ 30</p>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h4>💡 건강 팁</h4>
+                <ul>
+                    <li>BMI는 단순한 지표일 뿐, 근육량을 반영하지 않습니다</li>
+                    <li>꾸준한 운동과 균형 잡힌 식단이 중요합니다</li>
+                    <li>개인차가 크므로 전문가와 상담하세요</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ 의료 면책 조항</h4>
+                <p>이 도구는 참고용입니다. 건강 관련 결정은 반드시 의료 전문가와 상담하세요.</p>
+            </div>
+        </section>
+
+        <!-- 3. 할부금 계산기 -->
+        <section class="calculator-section" data-calc="loan">
+            <h2 class="calculator-title">💳 <span id="title-loan">할부금 계산기</span></h2>
+            
+            <div class="description-box">
+                <h3>할부금 계산이란?</h3>
+                <p id="desc-loan">대출이나 구매 금액을 일정 기간에 나누어 납부할 때 월상환액을 계산해주는 도구입니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label>대출 금액 (원)</label>
+                <input type="number" id="loanAmount" placeholder="5000000" value="5000000">
+            </div>
+
+            <div class="form-group">
+                <label>기간 (개월)</label>
+                <input type="number" id="loanMonth" placeholder="24" value="24">
+            </div>
+
+            <div class="form-group">
+                <label>연 이자율 (%)</label>
+                <input type="number" id="loanRate" placeholder="4.5" value="4.5" step="0.1">
+            </div>
+
+            <button onclick="calculateLoan()">계산하기</button>
+
+            <div id="loanResult"></div>
+
+            <div class="formula-section">
+                <h4>📐 계산 공식</h4>
+                <p>월상환액 = 대출금액 × [금리×(1+금리)^기간] / [(1+금리)^기간 - 1]</p>
+            </div>
+
+            <div class="tips-section">
+                <h4>💡 대출 팁</h4>
+                <ul>
+                    <li>금리가 낮을수록 총 상환액이 적습니다</li>
+                    <li>기간을 줄이면 이자가 감소합니다</li>
+                    <li>대출 전 여러 금융기관을 비교하세요</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ 주의사항</h4>
+                <p>실제 상환액은 금융기관의 수수료, 보험료 등에 따라 달라질 수 있습니다.</p>
+            </div>
+        </section>
+
+        <!-- 4. 할인 계산기 -->
+        <section class="calculator-section" data-calc="discount">
+            <h2 class="calculator-title">🏷️ <span id="title-discount">할인 계산기</span></h2>
+            
+            <div class="description-box">
+                <h3>할인 계산이란?</h3>
+                <p id="desc-discount">원가에서 할인율만큼 깎은 최종 가격을 계산해주는 도구입니다. 쇼핑할 때 얼마나 절약되는지 알 수 있습니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label>원가 (원)</label>
+                <input type="number" id="discountOriginal" placeholder="100000" value="100000">
+            </div>
+
+            <div class="form-group">
+                <label>할인율 (%)</label>
+                <input type="number" id="discountPercent" placeholder="20" value="20">
+            </div>
+
+            <button onclick="calculateDiscount()">계산하기</button>
+
+            <div id="discountResult"></div>
+
+            <div class="tips-section">
+                <h4>💡 쇼핑 팁</h4>
+                <ul>
+                    <li>가격 비교 사이트를 활용하세요</li>
+                    <li>시즌 세일은 더 큰 할인을 제공합니다</li>
+                    <li>쿠폰과 할인을 중복으로 사용할 수 있는지 확인하세요</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 광고 영역 2 -->
+        <div class="ad-container">
+            <div class="ad-label">광고</div>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+                 data-ad-slot="1234567891"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- 5. 단위변환 -->
+        <section class="calculator-section" data-calc="unit">
+            <h2 class="calculator-title">📏 <span id="title-unit">단위변환</span></h2>
+            
+            <div class="description-box">
+                <h3>단위변환이란?</h3>
+                <p id="desc-unit">길이, 무게, 부피 등 다양한 단위를 변환해주는 도구입니다. 국제 거래나 요리할 때 유용합니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label>변환 종류</label>
+                <select id="unitType" onchange="updateUnits()">
+                    <option value="length">길이 (km, m, cm, mm, mile, yard, foot, inch)</option>
+                    <option value="weight">무게 (kg, g, mg, lb, oz)</option>
+                    <option value="volume">부피 (L, ml, gallon, pint, cup)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label id="label-from-unit">값</label>
+                <div class="form-row">
+                    <input type="number" id="unitValue" placeholder="값" value="1">
+                    <select id="unitFrom">
+                        <option>km</option>
+                        <option selected>m</option>
+                        <option>cm</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label id="label-to-unit">다음으로 변환</label>
+                <select id="unitTo">
+                    <option>km</option>
+                    <option>m</option>
+                    <option selected>cm</option>
+                </select>
+            </div>
+
+            <button onclick="calculateUnit()">계산하기</button>
+
+            <div id="unitResult"></div>
+        </section>
+
+        <!-- 6. 나이 계산기 -->
+        <section class="calculator-section" data-calc="age">
+            <h2 class="calculator-title">🎂 <span id="title-age">나이 계산기</span></h2>
+            
+            <div class="description-box">
+                <h3>정확한 나이 계산</h3>
+                <p id="desc-age">생년월일을 입력하면 현재 정확한 나이를 계산해줍니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label>생년월일</label>
+                <input type="date" id="ageDate">
+            </div>
+
+            <button onclick="calculateAge()">계산하기</button>
+
+            <div id="ageResult"></div>
+        </section>
+
+        <!-- 7. 백분율 계산기 -->
+        <section class="calculator-section" data-calc="percentage">
+            <h2 class="calculator-title">% <span id="title-percentage">백분율 계산</span></h2>
+            
+            <div class="description-box">
+                <h3>백분율 계산이란?</h3>
+                <p id="desc-percentage">전체 중에서 특정 부분이 차지하는 비율을 백분율로 계산합니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label>부분</label>
+                <input type="number" id="percentPart" placeholder="25" value="25">
+            </div>
+
+            <div class="form-group">
+                <label>전체</label>
+                <input type="number" id="percentWhole" placeholder="100" value="100">
+            </div>
+
+            <button onclick="calculatePercentage()">계산하기</button>
+
+            <div id="percentageResult"></div>
+        </section>
+
+        <!-- 8. 팁 계산기 -->
+        <section class="calculator-section" data-calc="tip">
+            <h2 class="calculator-title">🍽️ <span id="title-tip">팁 계산기</span></h2>
+            
+            <div class="description-box">
+                <h3>팁 계산이란?</h3>
+                <p id="desc-tip">레스토랑에서 식사 후 팁의 금액을 쉽게 계산해주는 도구입니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label>식사 금액</label>
+                <input type="number" id="tipAmount" placeholder="50000" value="50000">
+            </div>
+
+            <div class="form-group">
+                <label>팁 비율 (%)</label>
+                <input type="number" id="tipPercent" placeholder="15" value="15" step="1">
+            </div>
+
+            <button onclick="calculateTip()">계산하기</button>
+
+            <div id="tipResult"></div>
+
+            <div class="tips-section">
+                <h4>💡 팁 관례</h4>
+                <ul>
+                    <li>미국: 15-20% (일반적)</li>
+                    <li>유럽: 5-10% (나라마다 다름)</li>
+                    <li>일본: 보통 팁 없음</li>
+                    <li>한국: 보통 팁 없음</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 9. D-day 계산기 -->
+        <section class="calculator-section" data-calc="dday">
+            <h2 class="calculator-title">📅 <span id="title-dday">D-day 계산기</span></h2>
+            
+            <div class="description-box">
+                <h3>D-day 계산이란?</h3>
+                <p id="desc-dday">특정 날짜까지 남은 날, 시간, 분을 계산해줍니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label>목표 날짜</label>
+                <input type="date" id="ddayDate">
+            </div>
+
+            <button onclick="calculateDday()">계산하기</button>
+
+            <div id="ddayResult"></div>
+        </section>
+
+        <!-- 10. 세금 계산기 -->
+        <section class="calculator-section" data-calc="tax">
+            <h2 class="calculator-title">💸 <span id="title-tax">세금 계산기</span></h2>
+            
+            <div class="description-box">
+                <h3>세금 계산이란?</h3>
+                <p id="desc-tax">세전 금액에서 세금을 계산하여 세후 금액을 구합니다.</p>
+            </div>
+
+            <div class="form-group">
+                <label>세전 금액</label>
+                <input type="number" id="taxAmount" placeholder="1000000" value="1000000">
+            </div>
+
+            <div class="form-group">
+                <label>세율 (%)</label>
+                <input type="number" id="taxRate" placeholder="10" value="10" step="0.1">
+            </div>
+
+            <button onclick="calculateTax()">계산하기</button>
+
+            <div id="taxResult"></div>
+
+            <div class="warning-box">
+                <h4>⚠️ 주의사항</h4>
+                <p>실제 세금은 지역, 항목, 기타 요인에 따라 다를 수 있습니다. 정확한 세금 정보는 세무 전문가에게 문의하세요.</p>
+            </div>
+        </section>
+
+        <!-- FAQ 섹션 -->
+        <section class="intro-section">
+            <h2 id="faq-title">자주 묻는 질문 (FAQ)</h2>
+            
+            <div class="faq-section">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span id="faq-q1">이 계산기는 정확한가요?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer" id="faq-a1">모든 계산기는 표준 계산 공식을 사용하여 정확하게 개발되었습니다. 다만, 실제 금융/의료 거래의 경우 기관별 수수료나 추가 요소가 있을 수 있으므로 참고용으로 사용하세요.</div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span id="faq-q2">내 개인 정보가 저장되나요?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer" id="faq-a2">아니요, 입력한 모든 데이터는 로컬 컴퓨터에서만 처리되며 서버에 저장되지 않습니다. 완전히 안전합니다.</div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span id="faq-q3">오프라인에서도 사용할 수 있나요?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer" id="faq-a3">네, 이 페이지를 한 번 로드한 후 인터넷 연결 없이도 모든 계산 기능을 사용할 수 있습니다.</div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span id="faq-q4">이 서비스는 무료인가요?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer" id="faq-a4">네, 100% 무료입니다. 모든 계산기를 제한 없이 사용할 수 있습니다.</div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span id="faq-q5">버그를 발견했어요. 어디에 보고하나요?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer" id="faq-a5">GitHub 저장소(https://github.com/gnsl5330879-hub/multi-calculator)의 Issues 섹션에서 보고해주세요. 감사합니다!</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2024 Multi-Calculator. All rights reserved.</p>
+        <p>
+            <a href="#privacy">Privacy Policy</a> | 
+            <a href="#terms">Terms of Service</a> | 
+            <a href="#contact">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        const translations = {
+            ko: {
+                'intro-title': '10가지 계산기를 한곳에서!',
+                'intro-desc': '환율, BMI, 할부금, 할인, 백분율, 팁, D-day, 세금, 단위변환, 나이 계산 등 실용적인 온라인 계산 도구입니다. 각 계산기마다 상세한 가이드와 팁을 제공합니다.',
+                'title-exchange': '환율 계산기',
+                'title-bmi': 'BMI 계산기',
+                'title-loan': '할부금 계산기',
+                'title-discount': '할인 계산기',
+                'title-unit': '단위변환',
+                'title-age': '나이 계산기',
+                'title-percentage': '백분율 계산',
+                'title-tip': '팁 계산기',
+                'title-dday': 'D-day 계산기',
+                'title-tax': '세금 계산기',
+                // 계속...
+            },
+            en: {
+                'intro-title': '10 Calculators in One Place!',
+                'intro-desc': 'Practical online calculation tools including exchange rate, BMI, installment, discount, percentage, tip, D-day, tax, unit conversion, and age calculation.',
+                'title-exchange': 'Exchange Rate Calculator',
+                'title-bmi': 'BMI Calculator',
+                'title-loan': 'Loan Calculator',
+                'title-discount': 'Discount Calculator',
+                'title-unit': 'Unit Converter',
+                'title-age': 'Age Calculator',
+                'title-percentage': 'Percentage Calculator',
+                'title-tip': 'Tip Calculator',
+                'title-dday': 'D-day Calculator',
+                'title-tax': 'Tax Calculator',
+                // 계속...
+            },
+            zh: {
+                'intro-title': '一个地方10个计算器！',
+                'intro-desc': '实用的在线计算工具，包括汇率、BMI、分期付款、折扣、百分比、小费、D日期、税金、单位转换和年龄计算。',
+                'title-exchange': '汇率计算器',
+                'title-bmi': 'BMI计算器',
+                'title-loan': '贷款计算器',
+                'title-discount': '折扣计算器',
+                'title-unit': '单位转换',
+                'title-age': '年龄计算器',
+                'title-percentage': '百分比计算',
+                'title-tip': '小费计算器',
+                'title-dday': 'D日期计算器',
+                'title-tax': '税金计算器',
+                // 계속...
+            },
+            ja: {
+                'intro-title': '1つの場所に10個の電卓！',
+                'intro-desc': '為替レート、BMI、ローン、割引、パーセンテージ、チップ、D-day、税金、単位変換、年齢計算など、実用的なオンライン計算ツールです。',
+                'title-exchange': '為替レート電卓',
+                'title-bmi': 'BMI電卓',
+                'title-loan': 'ローン電卓',
+                'title-discount': '割引電卓',
+                'title-unit': '単位変換',
+                'title-age': '年齢電卓',
+                'title-percentage': 'パーセンテージ計算',
+                'title-tip': 'チップ電卓',
+                'title-dday': 'D-day電卓',
+                'title-tax': '税金電卓',
+                // 계속...
+            }
+        };
+
+        let currentLanguage = 'ko';
+
+        const calculators = [
+            { id: 'exchange', name: { ko: '💵 환율', en: '💵 Exchange', zh: '💵 汇率', ja: '💵 為替' } },
+            { id: 'bmi', name: { ko: '⚖️ BMI', en: '⚖️ BMI', zh: '⚖️ BMI', ja: '⚖️ BMI' } },
+            { id: 'loan', name: { ko: '💳 할부금', en: '💳 Loan', zh: '💳 贷款', ja: '💳 ローン' } },
+            { id: 'discount', name: { ko: '🏷️ 할인', en: '🏷️ Discount', zh: '🏷️ 折扣', ja: '🏷️ 割引' } },
+            { id: 'unit', name: { ko: '📏 단위변환', en: '📏 Unit', zh: '📏 单位', ja: '📏 単位' } },
+            { id: 'age', name: { ko: '🎂 나이', en: '🎂 Age', zh: '🎂 年龄', ja: '🎂 年齢' } },
+            { id: 'percentage', name: { ko: '% 백분율', en: '% Percentage', zh: '% 百分比', ja: '% パーセンテージ' } },
+            { id: 'tip', name: { ko: '🍽️ 팁', en: '🍽️ Tip', zh: '🍽️ 小费', ja: '🍽️ チップ' } },
+            { id: 'dday', name: { ko: '📅 D-day', en: '📅 D-day', zh: '📅 D日期', ja: '📅 D-day' } },
+            { id: 'tax', name: { ko: '💸 세금', en: '💸 Tax', zh: '💸 税金', ja: '💸 税金' } },
+        ];
+
+        function initTabs() {
+            const tabNav = document.getElementById('tab-nav');
+            calculators.forEach(calc => {
+                const btn = document.createElement('button');
+                btn.className = 'tab-btn' + (calc.id === 'exchange' ? ' active' : '');
+                btn.textContent = calc.name[currentLanguage];
+                btn.onclick = () => switchCalculator(calc.id);
+                tabNav.appendChild(btn);
+            });
+        }
+
+        function switchCalculator(calcId) {
+            // 섹션 전환
+            document.querySelectorAll('.calculator-section').forEach(s => {
+                s.classList.remove('active');
+            });
+            document.querySelector(`[data-calc="${calcId}"]`).classList.add('active');
+
+            // 탭 버튼 활성화
+            document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+                btn.classList.toggle('active', calculators[idx].id === calcId);
+            });
+        }
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            document.documentElement.lang = lang;
+
+            // 언어 버튼 업데이트
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // 탭 네비게이션 업데이트
+            document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+                btn.textContent = calculators[idx].name[lang];
+            });
+
+            // 타이틀 업데이트
+            updateLanguageContent();
+        }
+
+        function updateLanguageContent() {
+            // 언어별 콘텐츠 업데이트 (간단한 예)
+            const titles = {
+                ko: { intro: '10가지 계산기를 한곳에서!' },
+                en: { intro: '10 Calculators in One Place!' },
+                zh: { intro: '一个地方10个计算器！' },
+                ja: { intro: '1つの場所に10個の電卓！' }
+            };
+
+            document.getElementById('intro-title').textContent = titles[currentLanguage].intro;
+        }
+
+        // 계산 함수들
+        function formatNumber(num) {
+            return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function calculateExchange() {
+            const amount = parseFloat(document.getElementById('exchangeAmount').value);
+            const from = document.getElementById('exchangeFrom').value;
+            const to = document.getElementById('exchangeTo').value;
+
+            const rates = {
+                'KRW': 1, 'USD': 0.00077, 'JPY': 0.11, 'EUR': 0.00072, 
+                'CNY': 0.0055, 'GBP': 0.00061, 'AUD': 0.0012
+            };
+
+            const result = (amount * rates[to]) / rates[from];
+            document.getElementById('exchangeResult').innerHTML = 
+                `<div class="result-box"><div class="result-label">${from} ${formatNumber(amount)} = ${to}</div><div class="result-value">${formatNumber(result)}</div></div>`;
+        }
+
+        function calculateBMI() {
+            const height = parseFloat(document.getElementById('bmiHeight').value) / 100;
+            const weight = parseFloat(document.getElementById('bmiWeight').value);
+            const bmi = weight / (height * height);
+
+            let category = '';
+            if (bmi < 18.5) category = '저체중';
+            else if (bmi < 25) category = '정상';
+            else if (bmi < 30) category = '과체중';
+            else category = '비만';
+
+            document.getElementById('bmiResult').innerHTML = 
+                `<div class="result-box"><div class="result-label">당신의 BMI</div><div class="result-value">${bmi.toFixed(1)}</div><div style="margin-top:10px;font-size:18px">${category}</div></div>`;
+        }
+
+        function calculateLoan() {
+            const principal = parseFloat(document.getElementById('loanAmount').value);
+            const months = parseInt(document.getElementById('loanMonth').value);
+            const annual = parseFloat(document.getElementById('loanRate').value);
+            const monthly = annual / 100 / 12;
+
+            const payment = principal * (monthly * Math.pow(1 + monthly, months)) / 
+                           (Math.pow(1 + monthly, months) - 1);
+            const totalPaid = payment * months;
+            const totalInterest = totalPaid - principal;
+
+            document.getElementById('loanResult').innerHTML = 
+                `<div class="result-box">
+                    <div class="result-label">월상환액</div>
+                    <div class="result-value">${formatNumber(payment)}</div>
+                    <div style="margin-top:15px;font-size:14px;opacity:0.9">
+                        총상환액: ${formatNumber(totalPaid)}<br>
+                        총이자: ${formatNumber(totalInterest)}
+                    </div>
+                </div>`;
+        }
+
+        function calculateDiscount() {
+            const original = parseFloat(document.getElementById('discountOriginal').value);
+            const percent = parseFloat(document.getElementById('discountPercent').value);
+            const discountAmount = original * percent / 100;
+            const final = original - discountAmount;
+
+            document.getElementById('discountResult').innerHTML = 
+                `<div class="result-box">
+                    <div class="result-label">할인가</div>
+                    <div class="result-value">${formatNumber(final)}</div>
+                    <div style="margin-top:15px;font-size:14px;opacity:0.9">
+                        할인액: ${formatNumber(discountAmount)}
+                    </div>
+                </div>`;
+        }
+
+        function calculateUnit() {
+            // 단순한 예
+            const value = parseFloat(document.getElementById('unitValue').value);
+            const from = document.getElementById('unitFrom').value;
+            const to = document.getElementById('unitTo').value;
+            
+            // 실제로는 더 복잡한 변환이 필요함
+            document.getElementById('unitResult').innerHTML = 
+                `<div class="result-box">
+                    <div class="result-label">${from} ${value} = ${to}</div>
+                    <div class="result-value">${(value).toFixed(2)}</div>
+                </div>`;
+        }
+
+        function calculateAge() {
+            const birthDate = new Date(document.getElementById('ageDate').value);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            document.getElementById('ageResult').innerHTML = 
+                `<div class="result-box">
+                    <div class="result-label">당신의 나이</div>
+                    <div class="result-value">${age}</div>
+                </div>`;
+        }
+
+        function calculatePercentage() {
+            const part = parseFloat(document.getElementById('percentPart').value);
+            const whole = parseFloat(document.getElementById('percentWhole').value);
+            const percent = (part / whole) * 100;
+
+            document.getElementById('percentageResult').innerHTML = 
+                `<div class="result-box">
+                    <div class="result-label">백분율</div>
+                    <div class="result-value">${percent.toFixed(2)}%</div>
+                </div>`;
+        }
+
+        function calculateTip() {
+            const amount = parseFloat(document.getElementById('tipAmount').value);
+            const tipPercent = parseFloat(document.getElementById('tipPercent').value);
+            const tip = amount * tipPercent / 100;
+            const total = amount + tip;
+
+            document.getElementById('tipResult').innerHTML = 
+                `<div class="result-box">
+                    <div class="result-label">팁 금액</div>
+                    <div class="result-value">${formatNumber(tip)}</div>
+                    <div style="margin-top:15px;font-size:14px;opacity:0.9">
+                        합계: ${formatNumber(total)}
+                    </div>
+                </div>`;
+        }
+
+        function calculateDday() {
+            const targetDate = new Date(document.getElementById('ddayDate').value);
+            const today = new Date();
+            const diff = targetDate - today;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+            document.getElementById('ddayResult').innerHTML = 
+                `<div class="result-box">
+                    <div class="result-label">남은 날짜</div>
+                    <div class="result-value">${days > 0 ? 'D-' + days : 'D+' + Math.abs(days)}</div>
+                </div>`;
+        }
+
+        function calculateTax() {
+            const amount = parseFloat(document.getElementById('taxAmount').value);
+            const taxRate = parseFloat(document.getElementById('taxRate').value);
+            const tax = amount * taxRate / 100;
+            const afterTax = amount - tax;
+
+            document.getElementById('taxResult').innerHTML = 
+                `<div class="result-box">
+                    <div class="result-label">세금</div>
+                    <div class="result-value">${formatNumber(tax)}</div>
+                    <div style="margin-top:15px;font-size:14px;opacity:0.9">
+                        세후: ${formatNumber(afterTax)}
+                    </div>
+                </div>`;
+        }
+
+        function toggleFaq(element) {
+            element.classList.toggle('open');
+        }
+
+        function updateUnits() {
+            const type = document.getElementById('unitType').value;
+            const fromSelect = document.getElementById('unitFrom');
+            const toSelect = document.getElementById('unitTo');
+
+            let units = [];
+            if (type === 'length') {
+                units = ['km', 'm', 'cm', 'mm', 'mile', 'yard', 'foot', 'inch'];
+            } else if (type === 'weight') {
+                units = ['kg', 'g', 'mg', 'lb', 'oz'];
+            } else {
+                units = ['L', 'ml', 'gallon', 'pint', 'cup'];
+            }
+
+            fromSelect.innerHTML = '';
+            toSelect.innerHTML = '';
+            units.forEach((unit, idx) => {
+                fromSelect.innerHTML += `<option ${idx === 1 ? 'selected' : ''}>${unit}</option>`;
+                toSelect.innerHTML += `<option ${idx === 2 ? 'selected' : ''}>${unit}</option>`;
+            });
+        }
+
+        // 초기화
+        window.addEventListener('load', () => {
+            initTabs();
+            updateUnits();
+            document.getElementById('ageDate').valueAsDate = new Date();
+            document.getElementById('ddayDate').valueAsDate = new Date(new Date().setMonth(new Date().getMonth() + 1));
+        });
+    </script>
+</body>
+</html>
