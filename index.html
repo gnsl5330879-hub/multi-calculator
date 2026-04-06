@@ -10,7 +10,8 @@
     <meta name="description" content="10가지 실용적인 온라인 계산기. 환율, BMI, 할부금, 할인 등 무료 계산.">
     <meta name="keywords" content="계산기, 환율, BMI, 할부금, 할인">
     
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+    <!-- Google AdSense (수정됨) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4446252565081462" crossorigin="anonymous"></script>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -121,7 +122,7 @@
             text-align: center;
             margin: 20px 0;
             border-radius: 8px;
-            min-height: 250px;
+            min-height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -360,24 +361,6 @@
             display: block;
         }
 
-        footer {
-            background: var(--text);
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            border-radius: 8px;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
         .legal-links {
             text-align: center;
             padding: 20px;
@@ -429,6 +412,24 @@
             color: var(--text-light);
             margin-bottom: 8px;
         }
+
+        footer {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -455,7 +456,7 @@
 
         <div class="ad-container">
             <div class="ad-label">광고</div>
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4446252565081462" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
@@ -717,37 +718,13 @@
 
         <!-- 법적 페이지 링크 -->
         <div class="legal-links">
-            <a href="#" onclick="showLegal('privacy'); return false;">개인정보 보호정책</a>
-            <a href="#" onclick="showLegal('terms'); return false;">이용약관</a>
-            <a href="#" onclick="showLegal('about'); return false;">회사소개</a>
+            <a href="about.html">회사소개</a>
+            <a href="privacy-policy.html">개인정보 보호정책</a>
             <a href="#" onclick="showLegal('disclaimer'); return false;">면책조항</a>
+            <a href="contact.html">문의</a>
         </div>
 
-        <!-- 법적 페이지 -->
-        <div id="legal-privacy" class="legal-page">
-            <h2>개인정보 보호정책</h2>
-            <h3>1. 개인정보 수집</h3>
-            <p>본 웹사이트는 사용자의 개인정보를 수집하지 않습니다. 모든 계산 데이터는 사용자의 로컬 컴퓨터에서만 처리됩니다.</p>
-            <h3>2. 쿠키 정책</h3>
-            <p>본 사이트는 Google AdSense를 사용하며, Google은 쿠키를 사용할 수 있습니다.</p>
-            <h3>3. 보안</h3>
-            <p>모든 데이터는 HTTPS를 통해 암호화되며 안전하게 전송됩니다.</p>
-        </div>
-
-        <div id="legal-terms" class="legal-page">
-            <h2>이용약관</h2>
-            <h3>1. 서비스 약관</h3>
-            <p>본 계산기는 참고용으로만 제공됩니다. 100% 정확성을 보장하지 않습니다.</p>
-            <h3>2. 면책조항</h3>
-            <p>본 계산기 사용으로 인한 손실이나 손해에 대해 책임을 지지 않습니다.</p>
-        </div>
-
-        <div id="legal-about" class="legal-page">
-            <h2>회사소개</h2>
-            <h3>다중 계산기 프로젝트</h3>
-            <p>다중 계산기는 전 세계 사용자를 위한 무료 온라인 계산 도구입니다. 우리의 목표는 누구나 쉽게 접근할 수 있는 실용적인 계산 솔루션을 제공하는 것입니다.</p>
-        </div>
-
+        <!-- 면책조항 -->
         <div id="legal-disclaimer" class="legal-page">
             <h2>면책조항</h2>
             <h3>의료 면책</h3>
@@ -759,7 +736,8 @@
 
     <footer>
         <p>&copy; 2024 Multi-Calculator. All rights reserved.</p>
-        <p>무료 온라인 계산 도구 | AdSense 광고 | 4언어 지원</p>
+        <p>무료 온라인 계산 도구 | Google AdSense | 4언어 지원</p>
+        <p><a href="privacy-policy.html">개인정보보호정책</a> | <a href="contact.html">문의</a> | <a href="about.html">회사소개</a></p>
     </footer>
 
     <script>
@@ -1087,7 +1065,7 @@
 
             document.getElementById('loanResult').innerHTML = 
                 `<div class="result-box">
-                    <div class="result-label">${currentLanguage === 'ko' ? '월상환액' : '월支払额'}</div>
+                    <div class="result-label">${currentLanguage === 'ko' ? '월상환액' : '月支払额'}</div>
                     <div class="result-value">${formatNumberComma(payment)}</div>
                     <div style="margin-top:15px;font-size:14px;opacity:0.9">
                         ${currentLanguage === 'ko' ? '총상환액' : '总还款'}: ${formatNumberComma(totalPaid)}<br>
