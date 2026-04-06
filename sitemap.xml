@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- 한국어 메인 -->
+    <url>
+        <loc>https://multicalculator.app</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://multicalculator.app"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://multicalculator.app/en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://multicalculator.app/zh"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://multicalculator.app/ja"/>
+    </url>
+    
+    <!-- English Version -->
+    <url>
+        <loc>https://multicalculator.app/en</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://multicalculator.app/en"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://multicalculator.app"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://multicalculator.app/zh"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://multicalculator.app/ja"/>
+    </url>
+    
+    <!-- Chinese Version -->
+    <url>
+        <loc>https://multicalculator.app/zh</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://multicalculator.app/zh"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://multicalculator.app"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://multicalculator.app/en"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://multicalculator.app/ja"/>
+    </url>
+    
+    <!-- Japanese Version -->
+    <url>
+        <loc>https://multicalculator.app/ja</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://multicalculator.app/ja"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://multicalculator.app"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://multicalculator.app/en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://multicalculator.app/zh"/>
+    </url>
+    
+    <!-- Currency Exchange Calculator -->
+    <url>
+        <loc>https://multicalculator.app#exchange</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- BMI Calculator -->
+    <url>
+        <loc>https://multicalculator.app#bmi</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Loan Calculator -->
+    <url>
+        <loc>https://multicalculator.app#loan</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Unit Converter -->
+    <url>
+        <loc>https://multicalculator.app#unit</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Age Calculator -->
+    <url>
+        <loc>https://multicalculator.app#age</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Discount Calculator -->
+    <url>
+        <loc>https://multicalculator.app#discount</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Percentage Calculator -->
+    <url>
+        <loc>https://multicalculator.app#percentage</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Tip Calculator -->
+    <url>
+        <loc>https://multicalculator.app#tip</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- D-Day Calculator -->
+    <url>
+        <loc>https://multicalculator.app#dday</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Tax Calculator -->
+    <url>
+        <loc>https://multicalculator.app#tax</loc>
+        <lastmod>2024-04-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+</urlset>
